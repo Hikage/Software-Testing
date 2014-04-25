@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for source in *.c
+do
+    gcov -b $source | grep 'Branches executed\|File'
+done

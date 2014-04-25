@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm *.gcov *.gcno *.gcda *.log *.sum coverage.info
+rm -rf report
