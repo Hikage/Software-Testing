@@ -1,0 +1,16 @@
+# You are supposed to run this on Unix-based machine
+# First you need to install DejaGnu
+
+# Step 1
+./configure
+
+# Step 2
+make
+
+# Run tests
+make check
+
+
+# You can change 'icalc.c' if you find bugs in it, and then type
+make
+make check

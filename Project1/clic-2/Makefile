@@ -6,8 +6,8 @@ CC=gcc
 SOURCES = main.c list.c parser.c pstack.c
 OBJECTS = $(SOURCES:.c=.o)
 PROGRAM = clic
-LDFLAGS = -ldl -lm -lreadline -ltermcap
-CFLAGS += -Wall
+LDFLAGS = -ldl -lm -lreadline -lhistory -ltermcap --coverage
+CFLAGS += -Wall --coverage
 
 all: $(PROGRAM)
 

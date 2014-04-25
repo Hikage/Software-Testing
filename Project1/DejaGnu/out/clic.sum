@@ -1,0 +1,24 @@
+Test Run By Brianna on Tue Apr 22 21:39:27 2014
+Native configuration is x86_64-apple-darwin13.1.0
+
+		=== clic tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./test/clic/test-clic.exp ...
+PASS: 1+2
+PASS: 3+2
+PASS:  
+PASS: 1 2 3 4
+PASS: 1.0 * 3
+PASS: 2 - 4
+PASS: a * bc
+PASS: 2^3
+PASS: 2 +- 3
+PASS: 2/0
+
+		=== clic Summary ===
+
+# of expected passes		10

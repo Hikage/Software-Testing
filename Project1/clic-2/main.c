@@ -8,7 +8,7 @@
 #include <readline/history.h>
 #include "parser.h"
 
-#define MAX_USER_VARS 1024
+#define MAX_USER_VARS 4
 #define MAX_ID_LEN 64
 
 struct user_var {

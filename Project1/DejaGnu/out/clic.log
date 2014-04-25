@@ -1,0 +1,51 @@
+Test Run By Brianna on Tue Apr 22 21:39:27 2014
+Native configuration is x86_64-apple-darwin13.1.0
+
+		=== clic tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using ./test/../config/base-config.exp as tool-and-target-specific interface file.
+Using ./config/unix.exp as generic interface file for target.
+Using ./test/../config/unix.exp as tool-and-target-specific interface file.
+Running ./test/clic/test-clic.exp ...
+spawn ./clic-2/clic
+Type '\h' to get some help
+clic2> 1+2
+3.000000
+clic2> PASS: 1+2
+3+2
+5.000000
+clic2> PASS: 3+2
+ 
+---syntax error
+clic2> PASS:  
+1 2 3 4
+1234.000000
+clic2> PASS: 1 2 3 4
+1.0 * 3
+3.000000
+clic2> PASS: 1.0 * 3
+2 - 4
+-2.000000
+clic2> PASS: 2 - 4
+a * bc
+---unknown identifier
+clic2> PASS: a * bc
+2^3
+8.000000
+clic2> PASS: 2^3
+2 +- 3
+-1.000000
+clic2> PASS: 2 +- 3
+2/0
+inf
+clic2> PASS: 2/0
+testcase ./test/clic/test-clic.exp completed in 0 seconds
+
+		=== clic Summary ===
+
+# of expected passes		10
+runtest completed at Tue Apr 22 21:39:27 2014
