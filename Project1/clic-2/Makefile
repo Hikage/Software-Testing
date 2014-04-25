@@ -17,3 +17,5 @@ clean:
 	rm -f $(OBJECTS)
 cleanall:
 	rm -f $(OBJECTS) $(PROGRAM)
+check:
+	runtest test/test-clic.exp

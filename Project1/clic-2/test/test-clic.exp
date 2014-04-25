@@ -1,16 +1,10 @@
 #!/usr/bin/expect
 
-set tool clic
+set tool "clic"
+set timeout 1
+set CLIC "./clic "
 set srcdir .
 set objdir .
-
-spawn "./clic";
-
-#expect "clic2>" {send "2/0\n"}
-#expect { -re "inf" { pass v}
-#        default { fail v }
-#        }
-
 
 set testdata {
     {"1+2"              "3.000000"}
@@ -72,6 +66,9 @@ set testdata {
 }
 
 
+global CLIC
+
+eval "spawn $CLIC";
 
 foreach pattern $testdata {
     set inputs [lindex $pattern 0]
@@ -80,6 +77,7 @@ foreach pattern $testdata {
         -re [lindex $pattern 1] {
             pass $inputs
         }
+        timeout { fail $inputs }
         default { fail $inputs }
     }
 }
