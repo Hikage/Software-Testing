@@ -1,0 +1,23 @@
+Test Run By Brianna on Mon Apr 21 20:06:54 2014
+Native configuration is x86_64-apple-darwin13.1.0
+
+		=== icalc tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Running ./test/icalc/test-add.exp ...
+PASS: + 1 2
+PASS: + 3 2
+PASS:  
+PASS: 1 2 3 4
+PASS: * 1.0 3
+PASS: * a  bc
+PASS: ^ 2 3
+PASS: +- 2 3
+PASS: / 2 0
+
+		=== icalc Summary ===
+
+# of expected passes		9

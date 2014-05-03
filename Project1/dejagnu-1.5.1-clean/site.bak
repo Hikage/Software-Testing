@@ -1,0 +1,4 @@
+set host_triplet x86_64-apple-darwin13.1.0
+set srcdir ./testsuite
+set objdir /Users/Brianna/Documents/School/CS510-SWTesting/dejagnu-1.5.1-clean
+set tmpdir /Users/Brianna/Documents/School/CS510-SWTesting/dejagnu-1.5.1-clean/tmpdir

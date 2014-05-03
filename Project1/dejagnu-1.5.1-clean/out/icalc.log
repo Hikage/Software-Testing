@@ -1,0 +1,46 @@
+Test Run By Brianna on Mon Apr 21 20:06:54 2014
+Native configuration is x86_64-apple-darwin13.1.0
+
+		=== icalc tests ===
+
+Schedule of variations:
+    unix
+
+Running target unix
+Using ./test/../config/base-config.exp as tool-and-target-specific interface file.
+Using ./config/unix.exp as generic interface file for target.
+Using ./test/../config/unix.exp as tool-and-target-specific interface file.
+Running ./test/icalc/test-add.exp ...
+spawn ./icalc + 1 2
+RESULT: 3
+PASS: + 1 2
+spawn ./icalc + 3 2
+RESULT: 5
+PASS: + 3 2
+spawn ./icalc
+Error! expect exactly 3 arguments
+PASS:  
+spawn ./icalc 1 2 3 4
+Error! expect exactly 3 arguments
+PASS: 1 2 3 4
+spawn ./icalc * 1.0 3
+Error! wrong operand
+PASS: * 1.0 3
+spawn ./icalc * a bc
+Error! wrong operand
+PASS: * a  bc
+spawn ./icalc ^ 2 3
+Error! unsupported operator
+PASS: ^ 2 3
+spawn ./icalc +- 2 3
+Error! unsupported operator
+PASS: +- 2 3
+spawn ./icalc / 2 0
+Error! divide by zero
+PASS: / 2 0
+testcase ./test/icalc/test-add.exp completed in 1 seconds
+
+		=== icalc Summary ===
+
+# of expected passes		9
+runtest completed at Mon Apr 21 20:06:55 2014
