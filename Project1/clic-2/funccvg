@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for source in *.c
+do
+    cov=`gcov -f $source`
+    num_funcs="`echo "$cov" | grep -c 'Function'`"
+    funcs_not_called="`echo "$cov" | grep -1 'Lines executed:0.00%' | grep 'Function'`"
+    num_funcs_not_called="`echo "$cov" | grep -1 'Lines executed:0.00%' | grep -c 'Function'`"
+    num_funcs_called="`expr $num_funcs - $num_funcs_not_called`"
+    echo "$source: $num_funcs_called / $num_funcs functions called"
+    echo "Functions not called:"
+    echo "$funcs_not_called"
+    echo
+done

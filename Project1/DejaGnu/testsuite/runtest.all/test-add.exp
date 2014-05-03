@@ -1,0 +1,25 @@
+set tool "icalc"
+
+set testdata {
+    {"+ 1 2"    "RESULT: 3"}
+    {"+ 3 2"    "RESULT: 5"}
+    {" "        "Error! expect exactly 3 arguments"}
+    {"1 2 3 4"  "Error! expect exactly 3 arguments"}
+    {"* 1.0 3"  "Error! wrong operand"}
+    {"* a  bc"  "Error! wrong operand"}
+    {"^ 2 3"    "Error! unsupported operator"}
+    {"+- 2 3"   "Error! unsupported operator"}
+    {"/ 2 0"    "Error! divide by zero"}
+}
+
+global ICALC
+foreach pattern $testdata {
+    set inputs [lindex $pattern 0]
+    eval "spawn ./icalc $inputs"
+    expect {
+        -re [lindex $pattern 1] {
+            pass $inputs
+        }
+        default { fail $inputs }
+    }
+}

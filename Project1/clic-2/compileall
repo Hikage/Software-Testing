@@ -1,0 +1,3 @@
+#!/bin/bash
+
+for source in *.c; do gcc --coverage $source; done;
