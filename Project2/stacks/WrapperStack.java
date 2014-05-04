@@ -4,16 +4,39 @@
  * bshade@pdx.edu
  *
  * Wrapper.java
- * TODO details on this class
+ * Simple wrapper to implement a stack using LinkedList methods
  */
 package stacks;
 
-public class Wrapper {
+import java.util.LinkedList;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-    }
+public class WrapperStack<type> extends LinkedList<type>{
+	private static final long serialVersionUID = 1L;
+
+	private LinkedList<type> lstack;
+	
+	/** Constructor **/
+	public WrapperStack(){
+		lstack = new LinkedList<type>();
+	}
+	
+	/** Modifiers **/
+	public void Push(type o){
+		lstack.addFirst(o);
+	}
+	public type Pop(){
+		return lstack.pop();
+	}
+	
+	/** Accessors **/
+	public type Peek(){
+		return lstack.peekFirst();
+	}
+	public int Size(){
+		return lstack.size();
+	}
+	public boolean isEmpty(){
+		return lstack.isEmpty();
+	}
+
 }
