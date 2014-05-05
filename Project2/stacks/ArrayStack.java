@@ -10,7 +10,7 @@ package stacks;
 
 import java.lang.reflect.Array;
 
-public class ArrayStack<type> {
+public class ArrayStack<type> implements BaseStack<type>{
 
 	private type[] astack;
 	private int size, head;

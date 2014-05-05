@@ -10,33 +10,32 @@ package stacks;
 
 import java.util.LinkedList;
 
-public class WrapperStack<type> extends LinkedList<type>{
-	private static final long serialVersionUID = 1L;
-
-	private LinkedList<type> lstack;
+public class WrapperStack<type> implements BaseStack<type> {
+	
+	private LinkedList<type> wstack;
 	
 	/** Constructor **/
 	public WrapperStack(){
-		lstack = new LinkedList<type>();
+		wstack = new LinkedList<type>();
 	}
 	
 	/** Modifiers **/
 	public void Push(type o){
-		lstack.addFirst(o);
+		wstack.addFirst(o);
 	}
 	public type Pop(){
-		return lstack.pop();
+		return wstack.pop();
 	}
 	
 	/** Accessors **/
 	public type Peek(){
-		return lstack.peekFirst();
+		return wstack.peekFirst();
 	}
 	public int Size(){
-		return lstack.size();
+		return wstack.size();
 	}
 	public boolean isEmpty(){
-		return lstack.isEmpty();
+		return wstack.isEmpty();
 	}
 
 }
