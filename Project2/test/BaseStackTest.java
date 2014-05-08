@@ -8,13 +8,9 @@
  */
 package test;
 
-import static org.junit.Assert.*;
-
-import java.util.NoSuchElementException;
-
-import org.junit.Test;
-
 import stacks.BaseStack;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class BaseStackTest {
 
@@ -66,7 +62,7 @@ public class BaseStackTest {
 		assertEquals("After " + k + " pushes and pops, size should be 0 (" + bs.Size() + ")", 0, bs.Size());
 	}
 
-	@Test (expected = NoSuchElementException.class)
+	@Test (expected = Exception.class)
 	public void testEmptyStack() throws Exception {
 		assertTrue("Freshly initialized stack should be empty", bs.isEmpty());
 		

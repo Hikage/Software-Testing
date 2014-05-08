@@ -8,7 +8,6 @@
  */
 package stacks;
 
-import java.lang.reflect.Array;
 
 public class ArrayStack<type> implements BaseStack<type>{
 
@@ -19,7 +18,7 @@ public class ArrayStack<type> implements BaseStack<type>{
 	@SuppressWarnings("unchecked")
 	public ArrayStack(int s){
 		size = s;
-		astack = (type[]) Array.newInstance(Object[].class, size);
+		astack = (type[]) new Object[size];
 		head = size;
 	}
 	
@@ -28,10 +27,11 @@ public class ArrayStack<type> implements BaseStack<type>{
 	public void Push(type o) throws Exception{
 		if(head < 1) throw new Exception("Cannot push full stack");
 		
-		astack[head--] = o;
+		head--;
+		astack[head] = o;
 	}
 	public type Pop() throws Exception{
-		if(head > size-1) throw new Exception("Cannot pop empty stack");
+		if(head >= size) throw new Exception("Cannot pop empty stack");
 		
 		type element = astack[head];
 		astack[head] = null;
@@ -41,6 +41,7 @@ public class ArrayStack<type> implements BaseStack<type>{
 	
 	/** Accessors **/
 	public type Peek(){
+		if(head >= size) return null;
 		return astack[head];
 	}
 	public int Size(){
