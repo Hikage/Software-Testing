@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * NodeStack.java
- * TODO details on this class
+ * Implements a stack through a series of singly-linked nodes; uses the Node.java object
  */
 package stacks;
 

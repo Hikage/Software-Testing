@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * Node.java
- * TODO details on this class
+ * Node object with simple "next" pointer and value; used with NodeStack.java
  */
 package stacks;
 

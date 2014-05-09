@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * BaseStack.java
- * TODO details on this class
+ * Interface that ensures all inheriting classes implement the required methods
  */
 package stacks;
 

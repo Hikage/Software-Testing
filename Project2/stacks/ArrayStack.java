@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * Array.java
- * TODO details on this class
+ * Implements a stack through the array data type (bounded)
  */
 package stacks;
 

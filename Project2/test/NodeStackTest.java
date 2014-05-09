@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * NodeStackTest.java
- * TODO details on this class
+ * Tests NodeStack implementation
  */
 package test;
 

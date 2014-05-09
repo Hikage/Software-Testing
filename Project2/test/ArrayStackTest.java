@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * ArrayStackTest.java
- * TODO details on this class
+ * Tests ArrayStack implementation
  */
 package test;
 

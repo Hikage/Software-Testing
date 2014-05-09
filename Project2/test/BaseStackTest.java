@@ -1,10 +1,10 @@
 /**
- * "Title"
+ * "Stacks"
  * Copyright © 2014 Brianna Shade
  * bshade@pdx.edu
  *
  * BaseStackTest.java
- * TODO details on this class
+ * Base test class that includes all common test modules
  */
 package test;
 

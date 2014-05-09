@@ -4,7 +4,10 @@
  * bshade@pdx.edu
  *
  * TwoQueues.java
- * TODO details on this class
+ * Implements a stack through two LinkedList queues.  When a new object
+ * is added, it is inserted into an empty queue, with all previously added
+ * objects (stored in another LinkedList) appended afterwards (allowing for
+ * LIFO behavior)
  */
 package stacks;
 

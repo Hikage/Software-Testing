@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * TestSuite.java
- * TODO details on this class
+ * Runs entire test suite
  */
 package test;
 

@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * TwoQueuesStackTest.java
- * Tests the WrapperStack class
+ * Tests the TwoQueuesStack implementation
  */
 package test;
 

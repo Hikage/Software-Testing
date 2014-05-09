@@ -4,7 +4,7 @@
  * bshade@pdx.edu
  *
  * WrapperStackTest.java
- * Tests the WrapperStack class
+ * Tests the WrapperStack implementation
  */
 package test;
 
