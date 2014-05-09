@@ -8,13 +8,22 @@
  */
 package test;
 
+
 import stacks.BaseStack;
+import java.util.Stack;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 public class BaseStackTest {
 
 	protected static BaseStack<Integer> bs;
+	protected static Stack<Integer> st;
+	
+	@Before
+	public void stackInit() {
+		st = new Stack<Integer>();
+	}
 	
 	@Test
 	public void testInitialization() {		
@@ -28,8 +37,9 @@ public class BaseStackTest {
 		
 		for(int i = 0; i < k; i++){
 			bs.Push(i);
+			st.push(i);
 			assertFalse("Stack should not be empty after " + (i+1) + " pushes", bs.isEmpty());
-			assertEquals("After " + (i+1) + " pushes, size should be " + (i+1) + " (" + bs.Size() + ")", i+1, bs.Size());
+			assertEquals("After " + (i+1) + " pushes, size should be " + st.size() + " (" + bs.Size() + ")", st.size(), bs.Size());
 		}
 	}
 	
@@ -50,11 +60,13 @@ public class BaseStackTest {
 		int x = 5, k = 5;
 		
 		bs.Push(x);
+		st.push(x);
 		int p = bs.Pop();
+		int sp = st.pop();
 		
-		assertEquals("Known value of " + x + " should be returned with a pop (" + p + ")", x, p);
-		
+		assertEquals("Known value of " + sp + " should be returned with a pop (" + p + ")", sp, p);		
 		assertTrue("After single push and pop, stack should be empty", bs.isEmpty());
+		
 		for(int i = 0; i < k; i++) bs.Push(i);
 		for(int i = 0; i < k; i++) bs.Pop();
 		
