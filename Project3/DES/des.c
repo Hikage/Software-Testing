@@ -20,8 +20,10 @@ void S_Change(bool DatOut[32],bool DatIn[48]);
 void F_Change(bool DatIn[32],bool DatKi[48]);
 
 void SetKey(char KeyIn[8]);
-void PlayDes(char MesOut[8],char MesIn[8]);
-void KickDes(char MesOut[8],char MesIn[8]);
+//void PlayDes(char MesOut[8],char MesIn[8]);   //Bug #5: MesOut should be 16
+//void KickDes(char MesOut[8],char MesIn[8]);   //Bug #5: MesIn should be 16
+void PlayDes(char MesOut[16],char MesIn[8]);
+void KickDes(char MesOut[8],char MesIn[16]);
 
 int getInputs(char * str);
 
@@ -29,9 +31,10 @@ int getInputs(char * str)
 {
 	int i = 0;
 	char ch;
-	while ((ch=getchar()) != EOF && ch != '\n')
+    while ((ch=getchar()) != EOF && ch != '\n')
 	{
-		str[i] = ch;
+        if(i<8)                             //Bug #6: failure to check user input
+		    str[i] = ch;
 		i++;
 	}
 	return i;
@@ -40,7 +43,8 @@ int getInputs(char * str)
 void ByteToBit(bool *DatOut,char *DatIn,int Num)
 {
 	int i = 0;
-	for(i = 0; i <= Num; i++)
+	//for(i = 0; i <= Num; i++)             //Bug #4: array out of bounds with i == Num
+	for(i = 0; i < Num; i++)
 		DatOut[i] = (DatIn[i/8] >> (i % 8)) & 0x01;   
 }
 
@@ -56,7 +60,8 @@ void BitToByte(char *DatOut, bool *DatIn, int Num)
 void BitsCopy(bool *DatOut, bool *DatIn, int Len)
 {
 	int i = 0;
-	for(i = 0; i < Len; i++);
+	//for(i = 0; i < Len; i++);             //Bug #1: errant semicolon
+	for(i = 0; i < Len; i++)
 		DatOut[i] = DatIn[i];
 }
 
@@ -108,6 +113,7 @@ void TablePermute(bool *DatOut,bool *DatIn,const char *Table,int Num)
 		Temp[i] = DatIn[Table[i]-1];
 	}
 	BitsCopy(DatOut, Temp, Num);
+    //free(Temp);                             //Bug #2: memory allocated without being freed
 } 
 
 void LoopMove(bool *DatIn,int Len,int Num)
@@ -116,6 +122,7 @@ void LoopMove(bool *DatIn,int Len,int Num)
 	BitsCopy(Temp, DatIn, Num);
 	BitsCopy(DatIn, DatIn + Num, Len - Num);
 	BitsCopy(DatIn + Len - Num, Temp, Num);
+    //free(Temp);                             //Bug #2: memory allocated without being freed
 } 
 
 void Xor(bool *DatA,bool *DatB,int Num)
@@ -138,7 +145,7 @@ void S_Change(bool * DatOut, bool * DatIn)
 		ByteToBit(DatOut, &S_Box[i][Y][X], 4);
 	}
 
-	free(DatIn);
+	//free(DatIn);                          //Bug #3: memory freed that isn't allocated
 }
 
 void F_Change(bool DatIn[32],bool DatKi[48])
@@ -148,6 +155,7 @@ void F_Change(bool DatIn[32],bool DatKi[48])
 	Xor(MiR,DatKi,48);
 	S_Change(DatIn,MiR);
 	TablePermute(DatIn,DatIn,P_Table,32);
+    //free(MiR);                              //Bug #2: memory allocated without being freed
 }
 
 void SetKey(char KeyIn[8])
@@ -165,7 +173,8 @@ void SetKey(char KeyIn[8])
 	}		
 }
 
-void PlayDes(char MesOut[8],char MesIn[8])
+//void PlayDes(char MesOut[8],char MesIn[8])    //Bug #5: MesOut should be 16
+void PlayDes(char MesOut[16],char MesIn[8])
 {
 	int i=0;
 	static bool MesBit[64]={0};
@@ -184,7 +193,8 @@ void PlayDes(char MesOut[8],char MesIn[8])
 	BitToHex(MesOut, MesBit, 64);
 }
 
-void KickDes(char MesOut[8],char MesIn[8])
+//void KickDes(char MesOut[8],char MesIn[8])    //Bug #5: MesIn should be 16
+void KickDes(char MesOut[8],char MesIn[16])
 {						
 	int i=0;
 	static bool MesBit[64]={0};
@@ -211,7 +221,7 @@ int main(void)
 	char YourKey[8]={0};
 	char MyMessage[8]={0};
 	
-	printf("Welcome! Please input your Message(64 bits):\n");
+	printf("Welcome to DES! Please input your Message(64 bits):\n");
 	getInputs(MyMessage);
 
 	printf("Please input your Secret Key:\n");
@@ -243,5 +253,6 @@ int main(void)
 	for(i = 0; i < 8; i++)
 		printf("%c ", MyMessage[i]);
 	printf("\n");
+    
 }
 
